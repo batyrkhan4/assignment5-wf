@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("MCTiers League: Assignment 5 Advanced JS Engine Initialized");
 
-
+    // Task 1: Sound Effects using Web Audio API (Part 1, Section 3)
     const SoundEngine = {
         ctx: null,
         enabled: true,
@@ -140,41 +140,76 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    // Task 2: Keyboard Event Handling (Part 1, Section 2)
+
+
     function initKeyboardNavigation() {
         const navLinks = Array.from(document.querySelectorAll(".navbar-nav .nav-link"));
         if (!navLinks.length) return;
 
-        navLinks.forEach((link, index) => {
-            link.addEventListener("keydown", (event) => {
-                let targetIndex = null;
+        function focusLink(targetIndex) {
+            if (targetIndex >= 0 && targetIndex < navLinks.length) {
+                navLinks.forEach(l => l.classList.remove("keyboard-focused"));
+                const target = navLinks[targetIndex];
+                target.focus();
+                target.classList.add("keyboard-focused");
+                SoundEngine.playClick();
+            }
+        }
 
-                switch (event.key) {
-                    case "ArrowRight":
-                    case "ArrowDown":
-                        event.preventDefault();
-                        targetIndex = (index + 1) % navLinks.length;
-                        break;
-                    case "ArrowLeft":
-                    case "ArrowUp":
-                        event.preventDefault();
-                        targetIndex = (index - 1 + navLinks.length) % navLinks.length;
-                        break;
-                    case "Home":
-                        event.preventDefault();
-                        targetIndex = 0;
-                        break;
-                    case "End":
-                        event.preventDefault();
-                        targetIndex = navLinks.length - 1;
-                        break;
-                    default:
-                        return;
-                }
 
-                if (targetIndex !== null) {
-                    navLinks[targetIndex].focus();
-                    SoundEngine.playClick();
-                }
+        document.addEventListener("keydown", (event) => {
+            const activeTag = document.activeElement ? document.activeElement.tagName : "";
+            if (["INPUT", "TEXTAREA", "SELECT"].includes(activeTag)) return;
+
+            let currentIndex = navLinks.indexOf(document.activeElement);
+            let targetIndex = null;
+
+            switch (event.key) {
+                case "ArrowRight":
+                case "ArrowDown":
+                    event.preventDefault();
+                    if (currentIndex === -1) {
+                        const activePageIdx = navLinks.findIndex(l => l.classList.contains("active"));
+                        targetIndex = activePageIdx !== -1 ? (activePageIdx + 1) % navLinks.length : 0;
+                    } else {
+                        targetIndex = (currentIndex + 1) % navLinks.length;
+                    }
+                    break;
+
+                case "ArrowLeft":
+                case "ArrowUp":
+                    event.preventDefault();
+                    if (currentIndex === -1) {
+                        const activePageIdx = navLinks.findIndex(l => l.classList.contains("active"));
+                        targetIndex = activePageIdx !== -1 ? (activePageIdx - 1 + navLinks.length) % navLinks.length : navLinks.length - 1;
+                    } else {
+                        targetIndex = (currentIndex - 1 + navLinks.length) % navLinks.length;
+                    }
+                    break;
+
+                case "Home":
+                    event.preventDefault();
+                    targetIndex = 0;
+                    break;
+
+                case "End":
+                    event.preventDefault();
+                    targetIndex = navLinks.length - 1;
+                    break;
+
+                default:
+                    return;
+            }
+
+            if (targetIndex !== null) {
+                focusLink(targetIndex);
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener("blur", () => {
+                link.classList.remove("keyboard-focused");
             });
         });
     }
