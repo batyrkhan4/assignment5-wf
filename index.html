@@ -15,7 +15,7 @@
 
     <div class="page d-flex flex-column min-vh-100">
 
-        <!-- Navigation Header with Keyboard Navigation & Utility Controls -->
+
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
                 <div class="container-fluid px-sm-2 px-lg-4">
@@ -62,11 +62,8 @@
             </nav>
         </header>
 
-        <!-- Main Body Layout -->
         <div class="container-fluid flex-grow-1">
             <div class="row g-4 align-items-start py-4">
-
-                <!-- Sidebar with Live Clock & Dynamic Time-of-Day Greeting (Switch statement) -->
                 <aside class="site-aside col-lg-3 px-sm-3 px-lg-4 py-4" aria-label="League info sidebar">
                     
                     <div class="aside-section">
@@ -111,10 +108,8 @@
 
                 </aside>
 
-                <!-- Main Content Area -->
                 <main class="col-lg-9">
 
-                    <!-- Hero Section -->
                     <section class="hero-banner p-4 p-lg-5 mb-4 text-center">
                         <h1 class="display-5 fw-bold text-white mb-2">Minecraft PvP Championship</h1>
                         <h2 class="subtitle h4 mb-3">Official Competitive Season 2026</h2>
@@ -123,8 +118,6 @@
                             verify your combat tier with official testers, and write your name into championship history.
                         </p>
                     </section>
-
-                    <!-- Interactive Pro PvP Tip / Quote Generator -->
                     <section class="pvp-tip-box" aria-label="Pro PvP tips generator">
                         <div class="tip-header">
                             <span class="badge bg-info text-dark">💡 Pro Dueling Tip</span>
@@ -138,7 +131,6 @@
                         <div id="pvpTipAuthor" class="tip-author">— Erauina (HT1 Champion)</div>
                     </section>
 
-                    <!-- Official Disciplines & "Read More" Expandable Lore -->
                     <section class="rules-section p-4 p-lg-5 mb-5 bg-dark rounded border border-secondary">
                         <div class="row g-4 align-items-center">
                             <div class="col-lg-7">
@@ -154,7 +146,6 @@
                                     Read Extended Rules ↓
                                 </button>
 
-                                <!-- Hidden content toggled via JavaScript style.display -->
                                 <div id="extendedRules">
                                     <h3 class="h5 text-warning mb-2">Tournament Regulations & Fair Play:</h3>
                                     <p class="small text-muted mb-2">• <strong>Ping Equalization:</strong> Matches are hosted on neutral Frankfurt & Virginia proxy nodes to guarantee balanced knockback.</p>
@@ -171,14 +162,12 @@
                         </div>
                     </section>
 
-                    <!-- Interactive Arena Showcase & Thumbnail Gallery (Attribute Manipulation) -->
                     <section class="arena-showcase" aria-label="Tournament Arenas Gallery">
                         <div class="text-center mb-4">
                             <h2 class="text-info h3 mb-1">Interactive Arena Showcase</h2>
                             <p class="text-muted">Click any arena thumbnail below to dynamically preview battleground conditions & tactical details.</p>
                         </div>
 
-                        <!-- Main Display Image with Dynamic Attributes (src, alt, caption) -->
                         <div class="arena-main-wrap">
                             <img id="arenaDisplayImg" src="images/overworld.jpg" alt="Overworld Colosseum" class="arena-main-img">
                             <div class="arena-caption-overlay">
@@ -190,7 +179,6 @@
                             </div>
                         </div>
 
-                        <!-- Clickable Thumbnails Grid -->
                         <div class="arena-thumbnails" role="group" aria-label="Arena thumbnails">
                             <button type="button" class="arena-thumb-btn active-thumb" data-src="images/overworld.jpg" data-file="overworld.jpg" aria-label="Select Overworld Colosseum">
                                 <img src="images/overworld.jpg" alt="Overworld" class="arena-thumb-img">
@@ -219,13 +207,12 @@
                         </div>
                     </section>
 
-                    <!-- Match Announcements with Dynamic Category Filtering (Switch & Array Methods) -->
                     <section class="mb-5" aria-label="Match Announcements">
                         <div class="text-center mb-4">
                             <h2 class="text-info h3 mb-2">Upcoming Match Announcements</h2>
                             <p class="text-muted">Filter upcoming showdowns by combat discipline:</p>
 
-                            <!-- Filter buttons handled via JS Switch statement -->
+
                             <div class="filter-btn-group" role="group" aria-label="Filter matches by discipline">
                                 <button type="button" class="btn-discipline-filter active" data-discipline="All">All Disciplines</button>
                                 <button type="button" class="btn-discipline-filter" data-discipline="Sword">⚔️ Sword</button>
@@ -235,13 +222,11 @@
                             </div>
                         </div>
 
-                        <!-- Matches Container dynamically generated from JavaScript objects -->
                         <div id="matchesContainer" class="row g-4 matches-container">
                             <!-- Injected by JavaScript -->
                         </div>
                     </section>
 
-                    <!-- Interactive Community Star Rating Box (querySelectorAll, Event Handling & Audio Feedback) -->
                     <section class="star-rating-box" aria-label="Rate the tournament hub">
                         <h2 class="text-info h4 mb-2">Rate Your Tournament Experience</h2>
                         <p class="text-muted mb-1">Click the stars to submit your review rating for the 2026 Competitive Season Hub:</p>
@@ -261,11 +246,10 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="py-4 text-center mt-auto bg-dark border-top border-secondary">
             <div class="container">
                 <p class="mb-1 text-light">Created by: Batyrkhan Uvayev &amp; Yermek Sain | MCTiers League 2026</p>
-                <small class="text-secondary">Assignment 5: Advanced JavaScript and DOM Manipulation</small>
+                
             </div>
         </footer>
 

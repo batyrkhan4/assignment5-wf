@@ -1,29 +1,8 @@
-/**
- * Minecraft PvP Championship - MCTiers League
- * Assignment 5: Advanced JavaScript & DOM Manipulation
- * Authors: Batyrkhan Uvayev & Yermek Sain
- * Year: 2026
- *
- * Fully modular implementation covering:
- * 1. Web Audio API Sound Effects Engine
- * 2. Keyboard Navigation (Arrow keys on navbar menu)
- * 3. Day / Night Theme Switcher & Dynamic Style Manipulation
- * 4. Time-of-Day Greeting via Switch Statement
- * 5. Interactive Arena Gallery (Thumbnail Attribute Manipulation)
- * 6. Interactive Star Rating System (querySelectorAll & Style/DOM Updates)
- * 7. "Read More" Content Toggle (style.display manipulation)
- * 8. Pro PvP Tips / Random Quote Generator
- * 9. Objects, Arrays & Higher-Order Functions (.filter, .map, .sort, .reduce)
- * 10. Multi-Step Form with Callbacks & Asynchronous Submission Feedback
- * 11. Preserved Assignment 4 Features (FAQ Accordion, Newsletter Popup, Live Clock)
- */
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("MCTiers League: Assignment 5 Advanced JS Engine Initialized");
 
-    // =========================================================================
-    // MODULE 1: SOUND EFFECTS ENGINE (Web Audio API)
-    // =========================================================================
+
     const SoundEngine = {
         ctx: null,
         enabled: true,
@@ -84,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             try {
                 this.init();
                 if (!this.ctx) return;
-                const scale = [261.63, 329.63, 392.00, 523.25, 659.25]; // C, E, G, C, E
+                const scale = [261.63, 329.63, 392.00, 523.25, 659.25]; 
                 const freq = scale[starIndex] || 440;
                 const osc = this.ctx.createOscillator();
                 const gain = this.ctx.createGain();
@@ -127,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
             try {
                 this.init();
                 if (!this.ctx) return;
-                const notes = [392.00, 523.25, 659.25, 783.99]; // G4, C5, E5, G5
+                const notes = [392.00, 523.25, 659.25, 783.99];
                 notes.forEach((freq, idx) => {
                     const osc = this.ctx.createOscillator();
                     const gain = this.ctx.createGain();
@@ -147,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // Restore sound preference from localStorage
     const savedSound = localStorage.getItem("mctiers_sound_enabled");
     if (savedSound !== null) {
         SoundEngine.enabled = savedSound === "true";
@@ -161,10 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // =========================================================================
-    // MODULE 2: KEYBOARD NAVIGATION (Arrow keys on navbar menu)
-    // Requirement: Keyboard navigation moving focus between items via keydown
-    // =========================================================================
+
     function initKeyboardNavigation() {
         const navLinks = Array.from(document.querySelectorAll(".navbar-nav .nav-link"));
         if (!navLinks.length) return;
@@ -173,7 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
             link.addEventListener("keydown", (event) => {
                 let targetIndex = null;
 
-                // Switch statement controlling logic for different key presses
                 switch (event.key) {
                     case "ArrowRight":
                     case "ArrowDown":
@@ -206,10 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     initKeyboardNavigation();
 
-    // =========================================================================
-    // MODULE 3: DAY & NIGHT THEME TOGGLE (Dynamic Style Changes)
-    // Requirement: Functional switch to toggle between Day and Night themes
-    // =========================================================================
+
     function initThemeSwitcher() {
         const themeBtn = document.getElementById("themeToggleBtn");
         const body = document.body;
@@ -238,7 +209,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Preserve Assignment 4 background gradient cycler
         const changeBgBtn = document.getElementById("changeThemeBtn");
         const gradients = [
             "linear-gradient(135deg, #0d0f17, #171a26)",
@@ -261,10 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     initThemeSwitcher();
 
-    // =========================================================================
-    // MODULE 4: DYNAMIC GREETING (Time of Day via Switch Statement)
-    // Requirement: switch statement to display greeting based on time of day
-    // =========================================================================
+
     function initTimeGreeting() {
         const greetingEl = document.getElementById("timeGreeting");
         const greetingBadge = document.getElementById("greetingBadge");
@@ -274,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let message = "";
         let badge = "";
 
-        // Switch statement based on time ranges
+
         switch (true) {
             case (hour >= 5 && hour < 12):
                 message = "Good morning, Warrior! Ready for morning duels? ⚔️";
@@ -301,17 +268,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     initTimeGreeting();
 
-    // =========================================================================
-    // MODULE 5: PRO PVP TIPS / RANDOM QUOTE GENERATOR
-    // Requirement: document.querySelector button fetches & displays new content
-    // =========================================================================
+
     function initPvPTips() {
         const tipText = document.getElementById("pvpTipContent");
         const tipAuthor = document.getElementById("pvpTipAuthor");
         const tipBtn = document.getElementById("newTipBtn");
         if (!tipText || !tipBtn) return;
 
-        // Array of quote objects
+  
         const tips = [
             { quote: "Critical hits require falling momentum — jump and strike precisely on the descent for maximum hearts.", author: "Erauina (HT1 Champion)" },
             { quote: "Always keep a water bucket in your hotbar; it resets fall damage and extinguishes flame aspect immediately.", author: "Itzrealme (Pot PvP Lead)" },
@@ -332,7 +296,6 @@ document.addEventListener("DOMContentLoaded", function () {
             lastIndex = nextIndex;
             const chosen = tips[nextIndex];
 
-            // Animate content change
             tipText.style.opacity = "0";
             setTimeout(() => {
                 tipText.textContent = `"${chosen.quote}"`;
@@ -345,10 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     initPvPTips();
 
-    // =========================================================================
-    // MODULE 6: "READ MORE" EXTENDED CONTENT TOGGLE (Dynamic style.display)
-    // Requirement: Toggle visibility of additional content changing style.display
-    // =========================================================================
+
     function initReadMore() {
         const readMoreBtn = document.getElementById("readMoreRulesBtn");
         const extendedRules = document.getElementById("extendedRules");
@@ -372,10 +332,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     initReadMore();
 
-    // =========================================================================
-    // MODULE 7: INTERACTIVE ARENA GALLERY (Attribute Manipulation)
-    // Requirement: Thumbnails dynamically change src of larger display image
-    // =========================================================================
+
     function initArenaGallery() {
         const displayImg = document.getElementById("arenaDisplayImg");
         const displayTitle = document.getElementById("arenaDisplayTitle");
@@ -385,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!displayImg || !thumbBtns.length) return;
 
-        // Data dictionary for arenas
+
         const arenasData = {
             "overworld.jpg": {
                 name: "Overworld Colosseum",
@@ -429,7 +386,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     desc: "Official battleground for competitive tier test matches."
                 };
 
-                // Update active thumbnail styling
                 thumbBtns.forEach((b) => b.classList.remove("active-thumb"));
                 btn.classList.add("active-thumb");
 
@@ -437,7 +393,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 displayImg.classList.add("fade-out");
 
                 setTimeout(() => {
-                    // Dynamically manipulate attributes
                     displayImg.src = targetSrc;
                     displayImg.alt = arenaInfo.name;
 
@@ -454,10 +409,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     initArenaGallery();
 
-    // =========================================================================
-    // MODULE 8: STAR RATING SYSTEM (querySelectorAll & Dynamic DOM/Styles)
-    // Requirement: querySelectorAll to select rating stars, click sets rating, color changes
-    // =========================================================================
+
     function initStarRating() {
         const starBtns = document.querySelectorAll(".star-btn");
         const feedbackEl = document.getElementById("ratingFeedback");
@@ -480,7 +432,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Switch statement to provide personalized rating feedback
         function getRatingMessage(rating) {
             switch (rating) {
                 case 1:
@@ -499,7 +450,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         starBtns.forEach((btn, index) => {
-            // Hover preview
+
             btn.addEventListener("mouseenter", () => {
                 const hoverVal = parseInt(btn.getAttribute("data-star"), 10);
                 updateStarsVisual(hoverVal, true);
@@ -510,12 +461,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 updateStarsVisual(currentRating, false);
             });
 
-            // Click selection
+
             btn.addEventListener("click", () => {
                 currentRating = parseInt(btn.getAttribute("data-star"), 10);
                 updateStarsVisual(currentRating, false);
 
-                // Add pulse animation class
+
                 btn.classList.add("pulse");
                 setTimeout(() => btn.classList.remove("pulse"), 300);
 
@@ -530,16 +481,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     initStarRating();
 
-    // =========================================================================
-    // MODULE 9: MATCH FILTERING & OBJECTS (Higher-Order Functions & Switch)
-    // Requirement: Objects, arrays, loops, higher-order functions (filter, map) & switch
-    // =========================================================================
+
     function initMatchFilter() {
         const container = document.getElementById("matchesContainer");
         const filterBtns = document.querySelectorAll(".btn-discipline-filter");
         if (!container || !filterBtns.length) return;
 
-        // Array of match objects
+
         const matchesData = [
             {
                 id: 1,
@@ -598,12 +546,12 @@ document.addEventListener("DOMContentLoaded", function () {
         ];
 
         function renderMatches(selectedDiscipline) {
-            // Higher-order function: .filter()
+
             const filtered = selectedDiscipline === "All"
                 ? matchesData
                 : matchesData.filter(m => m.discipline === selectedDiscipline);
 
-            // Switch statement controlling theme accent and discipline badge
+
             let badgeClass = "";
             switch (selectedDiscipline) {
                 case "Sword":
@@ -623,7 +571,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     break;
             }
 
-            // Higher-order function: .map()
+
             const cardsHTML = filtered.map(match => `
                 <div class="col-md-6 col-lg-4">
                     <div class="card match-card h-100 bg-dark border-secondary">
@@ -655,22 +603,18 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        // Initial render
+
         renderMatches("All");
     }
     initMatchFilter();
 
-    // =========================================================================
-    // MODULE 10: LEADERBOARD SYSTEM (Objects, Higher-Order Functions: filter, sort, reduce)
-    // Requirement: Objects and methods, higher-order functions (map, filter, reduce), switch
-    // =========================================================================
+
     function initLeaderboard() {
         const tableBody = document.getElementById("leaderboardTableBody");
         const searchInput = document.getElementById("leaderboardSearch");
         const filterBtns = document.querySelectorAll(".btn-lb-filter");
         if (!tableBody) return;
 
-        // Array of player objects
         const players = [
             { rank: 1, name: "Erauina", country: "Kazakhstan (KZ)", points: 300, tier: "HT1", discipline: "Sword", wins: 142 },
             { rank: 2, name: "Itzrealme", country: "USA (US)", points: 295, tier: "HT1", discipline: "Pot", wins: 138 },
@@ -684,7 +628,6 @@ document.addEventListener("DOMContentLoaded", function () {
             { rank: 10, name: "DiamondPvP", country: "Japan (JP)", points: 215, tier: "LT2", discipline: "Axe", wins: 85 }
         ];
 
-        // Higher-Order Function: .reduce() to compute summary statistics
         function updateStatsSummary(list) {
             const totalPointsEl = document.getElementById("statTotalPoints");
             const topScoreEl = document.getElementById("statTopScore");
@@ -704,7 +647,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let searchQuery = "";
 
         function getTierBadgeClass(tier) {
-            // Switch statement to assign color badges to tiers
+
             switch (tier) {
                 case "HT1": return "tier-ht1";
                 case "LT1": return "tier-lt1";
@@ -715,7 +658,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function render() {
-            // Higher-order function: .filter()
+
             let filtered = players.filter(p => {
                 const matchDiscipline = activeDiscipline === "All" || p.discipline === activeDiscipline;
                 const matchSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -728,7 +671,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Higher-order function: .map()
+
             tableBody.innerHTML = filtered.map(p => `
                 <tr>
                     <td>#${p.rank}</td>
@@ -758,15 +701,12 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        // Initial render
         render();
     }
     initLeaderboard();
 
-    // =========================================================================
-    // MODULE 11: MULTI-STEP REGISTRATION FORM WITH CALLBACKS & ASYNC SUBMIT
-    // Requirement: Multi-step form with Next/Back buttons using callbacks + async submission
-    // =========================================================================
+
+
     function initMultiStepRegistration() {
         const regForm = document.getElementById("registrationForm");
         if (!regForm) return;
@@ -782,7 +722,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let currentStepIndex = 0;
 
-        // Callback function to handle step transition and maintain state
+
         function goToStep(targetIndex, callback) {
             if (targetIndex < 0 || targetIndex >= steps.length) return;
 
@@ -802,13 +742,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             currentStepIndex = targetIndex;
 
-            // Trigger callback with current step details
             if (typeof callback === "function") {
                 callback(currentStepIndex, steps.length);
             }
         }
 
-        // Validation for each step
         function validateStep(index) {
             let isValid = true;
             const currentStepEl = steps[index];
@@ -876,7 +814,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        // Reset button using querySelectorAll
         if (resetBtn) {
             resetBtn.addEventListener("click", () => {
                 regForm.querySelectorAll("input, select, textarea").forEach(field => {
@@ -889,7 +826,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Asynchronous form submission via callback function
+
         regForm.addEventListener("submit", (e) => {
             e.preventDefault();
 
@@ -903,7 +840,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 submitBtn.textContent = "Verifying Credentials...";
             }
 
-            // Gather data object
             const registrationData = {
                 ign: document.getElementById("ign") ? document.getElementById("ign").value.trim() : "",
                 email: document.getElementById("email") ? document.getElementById("email").value.trim() : "",
@@ -912,7 +848,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 submittedAt: new Date().toISOString()
             };
 
-            // Simulate asynchronous server response with callback function
             function simulateAsyncSubmit(data, callback) {
                 setTimeout(() => {
                     const response = {
@@ -947,9 +882,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     initMultiStepRegistration();
 
-    // =========================================================================
-    // MODULE 12: PRESERVED ASSIGNMENT 4 FEATURES (FAQ, Popup & Clock)
-    // =========================================================================
 
     // Task 2: Custom FAQ Accordion
     const faqQuestions = document.querySelectorAll(".faq-question");

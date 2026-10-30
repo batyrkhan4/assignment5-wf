@@ -64,7 +64,3 @@ project_assignment5/
 
 ---
 
-## 🛡️ Defense & Verification Notes
-- **Separation of Concerns:** Zero inline scripts or inline styles in HTML files. Pure DOM selection and event binding.
-- **No External Audio Dependencies:** Audio is synthesized in real time via the browser's native `AudioContext`, eliminating missing file 404s.
-- **Responsive & Accessible:** Full ARIA attributes (`aria-expanded`, `aria-controls`, `aria-label`, `role`) implemented.

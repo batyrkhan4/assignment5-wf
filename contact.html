@@ -13,7 +13,6 @@
 <body>
     <div class="page d-flex flex-column min-vh-100">
 
-        <!-- Navigation Header with Keyboard Navigation & Utility Controls -->
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
                 <div class="container-fluid px-sm-2 px-lg-4">
@@ -60,11 +59,10 @@
             </nav>
         </header>
 
-        <!-- Main Registration Form Container -->
+
         <div class="container-fluid flex-grow-1 py-4 px-sm-3 px-lg-5">
             <div class="row g-4">
 
-                <!-- Sidebar with Step Instructions -->
                 <aside class="col-lg-4">
                     <div class="site-aside p-4 h-100">
                         <h2 class="h4 text-info mb-3">Qualification Guidelines</h2>
@@ -94,11 +92,11 @@
                     </div>
                 </aside>
 
-                <!-- Multi-Step Registration Card -->
+
                 <main class="col-lg-8">
                     <div class="registration-card">
                         
-                        <!-- Header with Step Progress Bar -->
+
                         <div class="step-progress-wrapper">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <h1 class="h3 text-white mb-0">Player Registration Wizard</h1>
@@ -123,11 +121,10 @@
                             </div>
                         </div>
 
-                        <!-- Active Form Area -->
+
                         <div id="formCardBody">
                             <form id="registrationForm" novalidate>
 
-                                <!-- STEP 1: Gladiator Credentials -->
                                 <div class="form-step active" data-step="0">
                                     <h2 class="h5 text-info mb-3">Step 1: Account Information</h2>
 
@@ -150,7 +147,6 @@
                                     </div>
                                 </div>
 
-                                <!-- STEP 2: Combat Class & Security -->
                                 <div class="form-step" data-step="1">
                                     <h2 class="h5 text-info mb-3">Step 2: Combat Class &amp; Security</h2>
 
@@ -189,7 +185,6 @@
                                     </div>
                                 </div>
 
-                                <!-- STEP 3: Experience & Verification -->
                                 <div class="form-step" data-step="2">
                                     <h2 class="h5 text-info mb-3">Step 3: Battle Experience &amp; Discord Tag</h2>
 
@@ -217,14 +212,12 @@
                             </form>
                         </div>
 
-                        <!-- Asynchronous Submission Feedback Confirmation Card -->
                         <div id="submissionFeedbackCard" class="submission-feedback-card">
                             <div class="success-icon-badge">✓</div>
                             <h2 class="h3 text-success mb-2">Registration Confirmed!</h2>
                             <p class="text-muted mb-4">Your application has been received and queued for official tier examiner review.</p>
                             
                             <div class="card bg-dark border-secondary p-3 text-start mx-auto mb-4" style="max-width: 500px;" id="registrationSummary">
-                                <!-- Populated dynamically by async callback -->
                             </div>
 
                             <a href="leaderboard.html" class="btn btn-outline-info">View Leaderboard &rarr;</a>
@@ -236,17 +229,14 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="py-4 text-center mt-auto bg-dark border-top border-secondary">
             <div class="container">
                 <p class="mb-1 text-light">Created by: Batyrkhan Uvayev &amp; Yermek Sain | MCTiers League 2026</p>
-                <small class="text-secondary">Assignment 5: Advanced JavaScript and DOM Manipulation</small>
             </div>
         </footer>
 
     </div>
 
-    <!-- Scripts -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 
