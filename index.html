@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft PvP Championship - Hub</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="page d-flex flex-column min-vh-100">
+
+        <!-- Navigation Header with Keyboard Navigation & Utility Controls -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
+                <div class="container-fluid px-sm-2 px-lg-4">
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                        <img src="images/logo.png" alt="MCTiers League logo" class="logo-img">
+                        <span>MCTiers League</span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="mainNav">
+                        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.html" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Registration</a>
+                            </li>
+                            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                                <div class="nav-actions-container">
+                                    <button type="button" id="soundToggleBtn" class="nav-action-btn" aria-pressed="true">
+                                        🔊 Sound: On
+                                    </button>
+                                    <button type="button" id="themeToggleBtn" class="nav-action-btn">
+                                        🌙 Theme: Night
+                                    </button>
+                                    <button type="button" id="changeThemeBtn" class="nav-action-btn">
+                                        🎨 Colors
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Body Layout -->
+        <div class="container-fluid flex-grow-1">
+            <div class="row g-4 align-items-start py-4">
+
+                <!-- Sidebar with Live Clock & Dynamic Time-of-Day Greeting (Switch statement) -->
+                <aside class="site-aside col-lg-3 px-sm-3 px-lg-4 py-4" aria-label="League info sidebar">
+                    
+                    <div class="aside-section">
+                        <span id="greetingBadge" class="greeting-badge">Gladiator Briefing</span>
+                        <h2 class="h5">Warrior Status</h2>
+                        <p id="timeGreeting" class="greeting-text">Loading combat briefing...</p>
+                    </div>
+
+                    <hr>
+
+                    <div class="aside-section">
+                        <h2 class="h5">🕒 Current Date &amp; Time</h2>
+                        <p id="currentDateTime" class="mb-0">Loading...</p>
+                    </div>
+
+                    <hr>
+
+                    <div class="aside-section">
+                        <h2 class="h5">🏆 Season 2026</h2>
+                        <p>Official Competitive Season</p>
+                        <span class="season-badge">Competition Hub</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="aside-section">
+                        <h2 class="h5">PvP Disciplines</h2>
+                        <p class="mb-1">⚔️ Sword (1.9+)</p>
+                        <p class="mb-1">🪓 Axe PvP</p>
+                        <p class="mb-1">🔮 Crystal PvP</p>
+                        <p class="mb-0">🧪 Pot PvP</p>
+                    </div>
+
+                    <hr>
+
+                    <div class="aside-section">
+                        <h2 class="h5">Quick Links</h2>
+                        <a href="leaderboard.html">Leaderboard →</a>
+                        <a href="about.html">About Us →</a>
+                        <a href="contact.html">Registration →</a>
+                    </div>
+
+                </aside>
+
+                <!-- Main Content Area -->
+                <main class="col-lg-9">
+
+                    <!-- Hero Section -->
+                    <section class="hero-banner p-4 p-lg-5 mb-4 text-center">
+                        <h1 class="display-5 fw-bold text-white mb-2">Minecraft PvP Championship</h1>
+                        <h2 class="subtitle h4 mb-3">Official Competitive Season 2026</h2>
+                        <p class="lead mx-auto" style="max-width: 800px;">
+                            Welcome to the premier dueling arena. Compete across Sword, Axe, Crystal, and Pot PvP ladders, 
+                            verify your combat tier with official testers, and write your name into championship history.
+                        </p>
+                    </section>
+
+                    <!-- Interactive Pro PvP Tip / Quote Generator -->
+                    <section class="pvp-tip-box" aria-label="Pro PvP tips generator">
+                        <div class="tip-header">
+                            <span class="badge bg-info text-dark">💡 Pro Dueling Tip</span>
+                            <button type="button" id="newTipBtn" class="btn-tip-refresh">
+                                ⚔️ Next Pro Tip
+                            </button>
+                        </div>
+                        <p id="pvpTipContent" class="tip-text mb-1">
+                            "Critical hits require falling momentum — jump and strike precisely on the descent for maximum hearts."
+                        </p>
+                        <div id="pvpTipAuthor" class="tip-author">— Erauina (HT1 Champion)</div>
+                    </section>
+
+                    <!-- Official Disciplines & "Read More" Expandable Lore -->
+                    <section class="rules-section p-4 p-lg-5 mb-5 bg-dark rounded border border-secondary">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-7">
+                                <h2 class="text-info h3">Official Disciplines</h2>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li class="mb-2">⚔️ <strong>Sword (1.9+)</strong> — Classic sword duels requiring precise spacing, timing, and sweep aim.</li>
+                                    <li class="mb-2">🪓 <strong>Axe PvP</strong> — Heavy combat utilizing shields and axes, focusing on critical hits and shield breaks.</li>
+                                    <li class="mb-2">🔮 <strong>Crystal PvP</strong> — Fast-paced end crystal and obsidian placement combat inside lethal blast zones.</li>
+                                    <li class="mb-2">🧪 <strong>Pot PvP</strong> — Speed-focused duels using instant health and regeneration splash potions.</li>
+                                </ul>
+
+                                <button type="button" id="readMoreRulesBtn" class="read-more-btn" aria-expanded="false" aria-controls="extendedRules">
+                                    Read Extended Rules ↓
+                                </button>
+
+                                <!-- Hidden content toggled via JavaScript style.display -->
+                                <div id="extendedRules">
+                                    <h3 class="h5 text-warning mb-2">Tournament Regulations & Fair Play:</h3>
+                                    <p class="small text-muted mb-2">• <strong>Ping Equalization:</strong> Matches are hosted on neutral Frankfurt & Virginia proxy nodes to guarantee balanced knockback.</p>
+                                    <p class="small text-muted mb-2">• <strong>Client Verification:</strong> Allowed clients are Lunar, Badlion, and Vanilla. Custom autoclickers, reach macros, or ghost clients lead to immediate permanent ban.</p>
+                                    <p class="small text-muted mb-0">• <strong>Tier Test Protocol:</strong> First to 5 wins against an official tier examiner determines your official HT1, LT1, HT2, or LT2 ranking.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 text-lg-end text-center">
+                                <h2 class="h3">Season Registration</h2>
+                                <p>Players can participate in qualification tests and tier tourneys throughout Season 2026.</p>
+                                <a href="contact.html" class="btn btn-info btn-lg mt-2 fw-bold text-dark">Register for Duels</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Interactive Arena Showcase & Thumbnail Gallery (Attribute Manipulation) -->
+                    <section class="arena-showcase" aria-label="Tournament Arenas Gallery">
+                        <div class="text-center mb-4">
+                            <h2 class="text-info h3 mb-1">Interactive Arena Showcase</h2>
+                            <p class="text-muted">Click any arena thumbnail below to dynamically preview battleground conditions & tactical details.</p>
+                        </div>
+
+                        <!-- Main Display Image with Dynamic Attributes (src, alt, caption) -->
+                        <div class="arena-main-wrap">
+                            <img id="arenaDisplayImg" src="images/overworld.jpg" alt="Overworld Colosseum" class="arena-main-img">
+                            <div class="arena-caption-overlay">
+                                <span id="arenaDisplayBadge" class="arena-badge">Standard Duel Arena</span>
+                                <h3 id="arenaDisplayTitle" class="text-white h4 mb-1">Overworld Colosseum</h3>
+                                <p id="arenaDisplayDesc" class="text-light mb-0 small">
+                                    Classic open-field battleground ideal for Sword 1.9+ spacing and shield mechanics under natural daylight.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Clickable Thumbnails Grid -->
+                        <div class="arena-thumbnails" role="group" aria-label="Arena thumbnails">
+                            <button type="button" class="arena-thumb-btn active-thumb" data-src="images/overworld.jpg" data-file="overworld.jpg" aria-label="Select Overworld Colosseum">
+                                <img src="images/overworld.jpg" alt="Overworld" class="arena-thumb-img">
+                                <div class="arena-thumb-title">Overworld</div>
+                            </button>
+                            <button type="button" class="arena-thumb-btn" data-src="images/nether.jpg" data-file="nether.jpg" aria-label="Select Nether Fortress">
+                                <img src="images/nether.jpg" alt="Nether" class="arena-thumb-img">
+                                <div class="arena-thumb-title">Nether Bastion</div>
+                            </button>
+                            <button type="button" class="arena-thumb-btn" data-src="images/end.jpg" data-file="end.jpg" aria-label="Select The End Citadel">
+                                <img src="images/end.jpg" alt="The End" class="arena-thumb-img">
+                                <div class="arena-thumb-title">The End Citadel</div>
+                            </button>
+                            <button type="button" class="arena-thumb-btn" data-src="images/dungeon.jpg" data-file="dungeon.jpg" aria-label="Select Stone Dungeon">
+                                <img src="images/dungeon.jpg" alt="Dungeon" class="arena-thumb-img">
+                                <div class="arena-thumb-title">Stone Dungeon</div>
+                            </button>
+                            <button type="button" class="arena-thumb-btn" data-src="images/portal.jpg" data-file="portal.jpg" aria-label="Select Ruined Portal">
+                                <img src="images/portal.jpg" alt="Portal" class="arena-thumb-img">
+                                <div class="arena-thumb-title">Ruined Portal</div>
+                            </button>
+                            <button type="button" class="arena-thumb-btn" data-src="images/village.jpg" data-file="village.jpg" aria-label="Select Desert Village">
+                                <img src="images/village.jpg" alt="Village" class="arena-thumb-img">
+                                <div class="arena-thumb-title">Desert Village</div>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Match Announcements with Dynamic Category Filtering (Switch & Array Methods) -->
+                    <section class="mb-5" aria-label="Match Announcements">
+                        <div class="text-center mb-4">
+                            <h2 class="text-info h3 mb-2">Upcoming Match Announcements</h2>
+                            <p class="text-muted">Filter upcoming showdowns by combat discipline:</p>
+
+                            <!-- Filter buttons handled via JS Switch statement -->
+                            <div class="filter-btn-group" role="group" aria-label="Filter matches by discipline">
+                                <button type="button" class="btn-discipline-filter active" data-discipline="All">All Disciplines</button>
+                                <button type="button" class="btn-discipline-filter" data-discipline="Sword">⚔️ Sword</button>
+                                <button type="button" class="btn-discipline-filter" data-discipline="Axe">🪓 Axe</button>
+                                <button type="button" class="btn-discipline-filter" data-discipline="Crystal">🔮 Crystal</button>
+                                <button type="button" class="btn-discipline-filter" data-discipline="Pot">🧪 Pot PvP</button>
+                            </div>
+                        </div>
+
+                        <!-- Matches Container dynamically generated from JavaScript objects -->
+                        <div id="matchesContainer" class="row g-4 matches-container">
+                            <!-- Injected by JavaScript -->
+                        </div>
+                    </section>
+
+                    <!-- Interactive Community Star Rating Box (querySelectorAll, Event Handling & Audio Feedback) -->
+                    <section class="star-rating-box" aria-label="Rate the tournament hub">
+                        <h2 class="text-info h4 mb-2">Rate Your Tournament Experience</h2>
+                        <p class="text-muted mb-1">Click the stars to submit your review rating for the 2026 Competitive Season Hub:</p>
+                        
+                        <div class="stars-container" role="radiogroup" aria-label="5 Star Rating">
+                            <button type="button" class="star-btn" data-star="1" aria-label="1 Star">★</button>
+                            <button type="button" class="star-btn" data-star="2" aria-label="2 Stars">★</button>
+                            <button type="button" class="star-btn" data-star="3" aria-label="3 Stars">★</button>
+                            <button type="button" class="star-btn" data-star="4" aria-label="4 Stars">★</button>
+                            <button type="button" class="star-btn" data-star="5" aria-label="5 Stars">★</button>
+                        </div>
+
+                        <p id="ratingFeedback" class="rating-feedback">Click a star to submit your rating!</p>
+                    </section>
+
+                </main>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="py-4 text-center mt-auto bg-dark border-top border-secondary">
+            <div class="container">
+                <p class="mb-1 text-light">Created by: Batyrkhan Uvayev &amp; Yermek Sain | MCTiers League 2026</p>
+                <small class="text-secondary">Assignment 5: Advanced JavaScript and DOM Manipulation</small>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

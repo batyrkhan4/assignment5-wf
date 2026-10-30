@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Minecraft PvP Championship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="page d-flex flex-column min-vh-100">
+
+        <!-- Navigation Header with Keyboard Navigation & Utility Controls -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
+                <div class="container-fluid px-sm-2 px-lg-4">
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                        <img src="images/logo.png" alt="MCTiers League logo" class="logo-img">
+                        <span>MCTiers League</span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="mainNav">
+                        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="about.html" aria-current="page">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Registration</a>
+                            </li>
+                            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                                <div class="nav-actions-container">
+                                    <button type="button" id="soundToggleBtn" class="nav-action-btn" aria-pressed="true">
+                                        🔊 Sound: On
+                                    </button>
+                                    <button type="button" id="themeToggleBtn" class="nav-action-btn">
+                                        🌙 Theme: Night
+                                    </button>
+                                    <button type="button" id="changeThemeBtn" class="nav-action-btn">
+                                        🎨 Colors
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="container-fluid flex-grow-1 py-4 px-sm-3 px-lg-5">
+            <main class="col-12">
+
+                <div class="text-center mb-5">
+                    <h1 class="display-6 fw-bold text-white mb-2">About the Championship Team</h1>
+                    <p class="text-muted mx-auto" style="max-width: 750px;">
+                        We are a team of web developers and competitive Minecraft PvP organizers dedicated to 
+                        providing fair matchmaking, official tier evaluations, and seamless esports tournament management.
+                    </p>
+                </div>
+
+                <!-- Team Members Grid -->
+                <div class="row g-4 mb-5">
+                    <div class="col-md-6">
+                        <div class="team-member p-4 h-100">
+                            <img src="images/profile1.jpg" alt="Batyrkhan Uvayev" class="member-avatar">
+                            <div>
+                                <h3 class="h4 text-info mb-1">Batyrkhan Uvayev</h3>
+                                <p class="mb-2"><strong>Role:</strong> Lead Organizer &amp; Web Developer</p>
+                                <p class="mb-0 text-muted small">
+                                    Architected the main tournament hub, event listeners, dynamic arena showcase, and interactive audio feedback engine.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="team-member p-4 h-100">
+                            <img src="images/profile2.png" alt="Yermek Sain" class="member-avatar">
+                            <div>
+                                <h3 class="h4 text-info mb-1">Yermek Sain</h3>
+                                <p class="mb-2"><strong>Role:</strong> Co-Developer &amp; System Architect</p>
+                                <p class="mb-0 text-muted small">
+                                    Implemented the multi-step registration wizard, state callbacks, leaderboard filtering logic, and responsive CSS theme styling.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preserved Assignment 4: FAQ Accordion Section -->
+                <section class="faq-section mb-5" aria-label="Frequently asked questions">
+                    <h2 class="faq-title">Frequently Asked Questions</h2>
+
+                    <div class="faq-container">
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1">
+                                <span>What is MCTiers League?</span>
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+
+                            <div class="faq-answer" id="faq-answer-1" aria-hidden="true">
+                                <div class="faq-answer-inner">
+                                    <p>
+                                        MCTiers League is an official platform ranking Minecraft PvP players across various combat tiers and organizing high-stakes tournaments.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">
+                                <span>What PvP disciplines are supported?</span>
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+
+                            <div class="faq-answer" id="faq-answer-2" aria-hidden="true">
+                                <div class="faq-answer-inner">
+                                    <p>The championship officially tests and ranks Sword 1.9+, Axe &amp; Shield PvP, End Crystal combat, and traditional Pot PvP (Nodebuff).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3">
+                                <span>How can I register for an official tier evaluation?</span>
+                                <span class="faq-icon" aria-hidden="true">+</span>
+                            </button>
+
+                            <div class="faq-answer" id="faq-answer-3" aria-hidden="true">
+                                <div class="faq-answer-inner">
+                                    <p>Head to our Registration page and complete the 3-step wizard to have your IGN and Discord reviewed by an official tier tester.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Preserved Assignment 4: Newsletter Subscription CTA -->
+                <div class="subscribe-section my-5">
+                    <h3 class="h4 text-white mb-2">Stay Connected with Tournament Alerts</h3>
+                    <p class="text-muted mb-3">Join our newsletter to receive tournament dates, bracket announcements, and tier testing timeslots.</p>
+                    <button type="button" id="openSubscribe" class="subscribe-btn">
+                        📬 Open Subscription Modal
+                    </button>
+                </div>
+
+            </main>
+        </div>
+
+        <!-- Preserved Assignment 4: Subscription Modal Popup -->
+        <div class="subscribe-overlay" id="subscribeOverlay" aria-hidden="true">
+            <div class="subscribe-popup" role="dialog" aria-modal="true" aria-labelledby="subscribeTitle">
+                <button type="button" id="closeSubscribe" class="subscribe-close" aria-label="Close">&times;</button>
+
+                <h2 id="subscribeTitle">Subscribe to MCTiers League</h2>
+                <p>Get instant email alerts about upcoming Minecraft PvP tournament brackets and tier test schedules.</p>
+
+                <form id="subscribeForm" novalidate>
+                    <label for="subscribeEmail">Email address</label>
+                    <input type="email" inputmode="email" id="subscribeEmail" autocomplete="email" placeholder="player@domain.com">
+                    <p id="subscribeError" class="subscribe-error"></p>
+                    <p id="subscribeMessage" class="subscribe-success" role="status" aria-live="polite"></p>
+                    <button type="submit" class="subscribe-btn w-100 mt-3">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="py-4 text-center mt-auto bg-dark border-top border-secondary">
+            <div class="container">
+                <p class="mb-1 text-light">Created by: Batyrkhan Uvayev &amp; Yermek Sain | MCTiers League 2026</p>
+                <small class="text-secondary">Assignment 5: Advanced JavaScript and DOM Manipulation</small>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

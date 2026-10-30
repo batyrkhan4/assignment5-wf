@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Minecraft PvP Championship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="page d-flex flex-column min-vh-100">
+
+        <!-- Navigation Header with Keyboard Navigation & Utility Controls -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
+                <div class="container-fluid px-sm-2 px-lg-4">
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                        <img src="images/logo.png" alt="MCTiers League logo" class="logo-img">
+                        <span>MCTiers League</span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="mainNav">
+                        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="contact.html" aria-current="page">Registration</a>
+                            </li>
+                            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                                <div class="nav-actions-container">
+                                    <button type="button" id="soundToggleBtn" class="nav-action-btn" aria-pressed="true">
+                                        🔊 Sound: On
+                                    </button>
+                                    <button type="button" id="themeToggleBtn" class="nav-action-btn">
+                                        🌙 Theme: Night
+                                    </button>
+                                    <button type="button" id="changeThemeBtn" class="nav-action-btn">
+                                        🎨 Colors
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Registration Form Container -->
+        <div class="container-fluid flex-grow-1 py-4 px-sm-3 px-lg-5">
+            <div class="row g-4">
+
+                <!-- Sidebar with Step Instructions -->
+                <aside class="col-lg-4">
+                    <div class="site-aside p-4 h-100">
+                        <h2 class="h4 text-info mb-3">Qualification Guidelines</h2>
+                        <p class="text-light mb-3">
+                            Welcome to the Season 2026 Tier Test Registry. Complete each step in the registration wizard to submit your official application.
+                        </p>
+
+                        <div class="mb-3">
+                            <h3 class="h6 text-info">📌 Step 1: Gladiator Credentials</h3>
+                            <p class="small text-muted mb-2">Provide your exact Minecraft IGN and an active email for verification codes.</p>
+                        </div>
+
+                        <div class="mb-3">
+                            <h3 class="h6 text-info">⚔️ Step 2: Combat Class</h3>
+                            <p class="small text-muted mb-2">Select your primary tier discipline and set up your secure arena access key.</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3 class="h6 text-info">🛡️ Step 3: Verification &amp; Discord</h3>
+                            <p class="small text-muted mb-2">Attach your Discord tag for examiner communications and scheduling queue.</p>
+                        </div>
+
+                        <hr>
+                        <div class="small text-secondary">
+                            ⚡ Powered by modular callback state management &amp; asynchronous form submission.
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Multi-Step Registration Card -->
+                <main class="col-lg-8">
+                    <div class="registration-card">
+                        
+                        <!-- Header with Step Progress Bar -->
+                        <div class="step-progress-wrapper">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h1 class="h3 text-white mb-0">Player Registration Wizard</h1>
+                                <span class="badge bg-primary">Season 2026</span>
+                            </div>
+                            <div class="step-progress-bar">
+                                <div id="formProgressFill" class="step-progress-fill"></div>
+                            </div>
+                            <div class="step-indicators">
+                                <div class="step-indicator active" data-step-indicator="0">
+                                    <span class="step-circle">1</span>
+                                    <span>Account</span>
+                                </div>
+                                <div class="step-indicator" data-step-indicator="1">
+                                    <span class="step-circle">2</span>
+                                    <span>Combat</span>
+                                </div>
+                                <div class="step-indicator" data-step-indicator="2">
+                                    <span class="step-circle">3</span>
+                                    <span>Verification</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Active Form Area -->
+                        <div id="formCardBody">
+                            <form id="registrationForm" novalidate>
+
+                                <!-- STEP 1: Gladiator Credentials -->
+                                <div class="form-step active" data-step="0">
+                                    <h2 class="h5 text-info mb-3">Step 1: Account Information</h2>
+
+                                    <div class="mb-3">
+                                        <label for="ign" class="form-label">Minecraft Username / In-Game Name (IGN): *</label>
+                                        <input type="text" class="form-control" id="ign" placeholder="e.g. Steve_PvP" required>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Contact Email Address: *</label>
+                                        <input type="email" class="form-control" id="email" placeholder="example@mail.com" inputmode="email" required>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+
+                                    <div class="step-buttons justify-content-end">
+                                        <button type="button" class="btn btn-primary btn-step-next">
+                                            Next: Combat Class &rarr;
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- STEP 2: Combat Class & Security -->
+                                <div class="form-step" data-step="1">
+                                    <h2 class="h5 text-info mb-3">Step 2: Combat Class &amp; Security</h2>
+
+                                    <div class="mb-3">
+                                        <label for="discipline" class="form-label">Preferred Tier Discipline: *</label>
+                                        <select id="discipline" class="form-select" required>
+                                            <option value="">Select a PvP discipline</option>
+                                            <option value="Sword">Sword 1.9+ Duels</option>
+                                            <option value="Axe">Axe &amp; Shield PvP</option>
+                                            <option value="Crystal">Crystal PvP</option>
+                                            <option value="Pot">Pot PvP (Nodebuff)</option>
+                                        </select>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Portal Security Password: *</label>
+                                        <input type="password" class="form-control" id="password" required>
+                                        <div class="invalid-feedback"></div>
+                                        <small class="form-text text-muted">Must be at least 8 characters.</small>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="confirmPassword" class="form-label">Confirm Security Password: *</label>
+                                        <input type="password" class="form-control" id="confirmPassword" required>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+
+                                    <div class="step-buttons">
+                                        <button type="button" class="btn btn-outline-secondary btn-step-prev">
+                                            &larr; Previous Step
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-step-next">
+                                            Next: Verification &rarr;
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- STEP 3: Experience & Verification -->
+                                <div class="form-step" data-step="2">
+                                    <h2 class="h5 text-info mb-3">Step 3: Battle Experience &amp; Discord Tag</h2>
+
+                                    <div class="mb-3">
+                                        <label for="experience" class="form-label">Discord Tag &amp; Prior Competitive Tournaments: *</label>
+                                        <textarea id="experience" class="form-control" rows="4" placeholder="Discord: your_tag#0000&#10;Prior tier tests: Diamond League 2025, Minemen Tier 2..." required></textarea>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+
+                                    <div class="step-buttons">
+                                        <button type="button" class="btn btn-outline-secondary btn-step-prev">
+                                            &larr; Back
+                                        </button>
+                                        <div class="d-flex gap-2">
+                                            <button type="reset" class="btn btn-outline-danger">
+                                                Reset Fields
+                                            </button>
+                                            <button type="submit" class="btn btn-success fw-bold">
+                                                ⚔️ Submit Application
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <!-- Asynchronous Submission Feedback Confirmation Card -->
+                        <div id="submissionFeedbackCard" class="submission-feedback-card">
+                            <div class="success-icon-badge">✓</div>
+                            <h2 class="h3 text-success mb-2">Registration Confirmed!</h2>
+                            <p class="text-muted mb-4">Your application has been received and queued for official tier examiner review.</p>
+                            
+                            <div class="card bg-dark border-secondary p-3 text-start mx-auto mb-4" style="max-width: 500px;" id="registrationSummary">
+                                <!-- Populated dynamically by async callback -->
+                            </div>
+
+                            <a href="leaderboard.html" class="btn btn-outline-info">View Leaderboard &rarr;</a>
+                        </div>
+
+                    </div>
+                </main>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="py-4 text-center mt-auto bg-dark border-top border-secondary">
+            <div class="container">
+                <p class="mb-1 text-light">Created by: Batyrkhan Uvayev &amp; Yermek Sain | MCTiers League 2026</p>
+                <small class="text-secondary">Assignment 5: Advanced JavaScript and DOM Manipulation</small>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
